@@ -1,0 +1,1 @@
+Me walking through the [Nature of Code book book](https://nature-of-code-2nd-edition.netlify.app)
