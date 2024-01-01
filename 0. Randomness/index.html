@@ -5,21 +5,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nature of Code: 0</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-      background-color: #1b1b1b;
-    }
   </style>
-  <script src="../p5/p5.js"></script>
-  <!-- <script src="../addons/p5.sound.js"></script> -->
-  <script src="sketch.js"></script>
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-  <main>
-  </main>
+  <div class="outer-grid-standalone">
+    <div class="header">
+      <h3>0. Randomness</h3>
+    </div>
+    <main>
+      <div>
+        <div class="plots-grid double-column">
+          <div class="plot-container">
+            <div class="plot-item" id="walker">
+              <p>Random walker</p>
+              <iframe src="walker.html" width="100%" height="96%"></iframe>
+            </div>
+          </div>
+          <div class="plot-container">
+            <div class="plot-item" id="walker">
+              <p>Random gaussian dots</p>
+              <iframe src="random_gaussian_dots.html" width="100%" height="96%"></iframe>
+            </div>
+          </div>
+          <div class="plot-container">
+            <div class="plot-item" id="walker">
+              <p>Perlin noise</p>
+              <iframe src="perlin_noise.html" width="100%" height="96%"></iframe>
+            </div>
+          </div>
+          <div class="plot-container">
+            <div class="plot-item" id="walker">
+              <p>Perlin noise 2D</p>
+              <iframe src="noise_2d.html" width="100%" height="96%"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </body>
 
 </html>

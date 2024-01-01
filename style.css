@@ -1,0 +1,154 @@
+:root {
+  --blue: #007bff;
+  --grey: #808080cc;
+  --light-grey: rgba(128, 128, 128, 0.4);
+  --nav-bg-color: #2d3e50;
+  --nav-link-color: #6fbef3;
+  --nav-item-hover-color: #48709c;
+  --nav-item-heading-color: #4b7197;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+/* 
+================================
+CSS OUTER GRID STYLES
+================================
+*/
+
+.outer-grid {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 170px 1fr;
+  grid-template-areas:
+    "g-header g-header"
+    "g-main g-main";
+}
+
+.outer-grid-standalone {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "g-header"
+    "g-main";
+}
+
+.outer-grid-expanded {
+  grid-template-areas:
+    "g-nav g-header"
+    "g-nav g-main";
+}
+
+.header {
+  grid-area: g-header;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+================================
+PLOTS GRID
+================================
+*/
+
+.plots-grid {
+  display: grid;
+  padding: 5px;
+}
+
+select {
+  padding: 5px 10px 5px 10px;
+  background-color: var(--nav-item-hover-color);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* more layots are specified in @media sections */
+
+/* 
+================================
+PLOTS STYLES
+================================
+*/
+
+.white-box {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.numeric-metric {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  min-height: 150px;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.numeric-metric h4 {
+  font-style: normal;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 10px;
+  opacity: 0.8;
+}
+
+.numeric-metric .value {
+  font-size: 2.5rem;
+  margin: 10px;
+}
+
+.plot-container {
+  margin: 5px;
+  padding: 5px;
+  overflow: clip;
+  overflow-clip-margin: 500px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.plot-item {
+  height: 60vh;
+}
+
+.plot-item-h150 {
+  height: 150vh;
+}
+
+.plot-item-h80 {
+  height: 80vh;
+}
+
+.jenkins-build-res-sizes {
+  max-height: 200px;
+}
+
+.g-row-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
