@@ -1,12 +1,3 @@
-let x = 100;
-let y = 100;
-let xspeed = 2.5;
-let yspeed = 2;
-
-let position;
-let velocity;
-let radius = 20;
-
 
 class Mover {
   constructor(radius) {
@@ -49,8 +40,10 @@ class Mover {
   updateFollowMouse() {
     let mouse = createVector(mouseX, mouseY);
     let dir = p5.Vector.sub(mouse, this.position);
+    let distanse = dir.mag();
+    let multiplier = 1 - map(distanse, 0, width, 0, 0.8);
     dir.normalize();
-    dir.mult(0.2);
+    dir.mult(multiplier);
 
     this.acceleration = dir;
     this.velocity.add(this.acceleration);
@@ -65,19 +58,19 @@ class Mover {
   }
 }
 
-let m;
+let b;
 
 function setup() {
   createCanvas(windowWidth * 0.96, windowHeight * 0.96);
   background(255);
 
-  m = new Mover(30);
+  b = new Mover(30);
 }
 
 function draw() {
   background(255);
   // m.update();
-  m.updateFollowMouse();
-  m.draw();
+  b.updateFollowMouse();
+  b.draw();
 }
 
