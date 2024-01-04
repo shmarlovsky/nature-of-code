@@ -20,6 +20,7 @@ class Baloon {
 
   checkEdges() {
     let p = this.position;
+    let v = this.velocity;
     let radius = this.radius;
 
     if (p.y + radius > height) {
@@ -28,14 +29,14 @@ class Baloon {
 
     if (p.y <= radius) {
       p.y = radius;
-      this.hitTop = 3;
+      v.y *= - 0.6;
     }
 
-    if (this.hitTop) {
-      this.applyForce(createVector(0, 0.9));
-      this.hitTop--;
+    if (p.x > width) {
+      p.x = 0;
+    } else if (p.x < 0) {
+      p.x = width;
     }
-
 
   }
 
@@ -51,6 +52,7 @@ class Baloon {
 }
 
 let m;
+let wOff = 1000;
 
 function setup() {
   createCanvas(windowWidth * 0.96, windowHeight * 0.96);
@@ -70,9 +72,16 @@ function mousePressed() {
 
 function frame() {
   background(255);
-  let antiGravity = createVector(0, -0.1);
+  let antiGravity = createVector(0, -0.05);
+  let n = map(noise(wOff), 0, 1, -0.05, 0.05)
+  let w = createVector(n, 0);
   m.applyForce(antiGravity);
+  m.applyForce(w);
+  print(w);
 
   m.update();
   m.draw();
+
+  w.mult(0);
+  wOff += 0.01;
 }
