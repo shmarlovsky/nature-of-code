@@ -83,23 +83,9 @@ function draw() {
   }
   for (let i = 0; i < waves.length; i++) {
     for (let j = 0; j < resWave.yvalues.length; j++) {
-      resWave.yvalues[j] += waves[i].yvalues[j];
+      let n = map(noise(waves[i].theta/3), 0, 1, 0.8, 1);
+      resWave.yvalues[j] += waves[i].yvalues[j]* n;
     }
   }
   resWave.show();
-}
-
-
-function showSum() {
-  beginShape();
-  for (let x = 0; x < this.yvalues.length; x++) {
-    stroke(0);
-    noFill();
-    strokeWeight(3);
-    vertex(
-      this.origin.x + x * this.xspacing,
-      this.origin.y + this.yvalues[x],
-    )
-  }
-  endShape();
 }
