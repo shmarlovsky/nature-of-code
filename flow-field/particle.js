@@ -1,7 +1,7 @@
 class Particle {
   constructor() {
-    this.pos = createVector(random(width), random(height));
-    this.vel = createVector(0, 0);
+    this.pos = createVector(5, random(height));
+    this.vel = createVector(1, 0);
     this.acc = createVector(0, 0);
     this.maxspeed = 4;
     this.prevPos = this.pos.copy();
@@ -19,9 +19,17 @@ class Particle {
   }
 
   show() {
-    stroke(255, 10);
+    // var r = map(this.pos.x, 0, width, r1, r2);
+    // var g = map(this.pos.y, 0, height, g1, g2);
+    // var b = map(this.pos.x, 0, width, b1, b2);
+    var r = map(this.pos.x, 0, width, 50, 255);
+    var g = map(this.pos.y, 0, height, 50, 255);
+    var b = map(this.pos.x, 0, width, 255, 50);
+    var alpha = map(this.pos.x + this.pos.y, 0, width+height, 0, 255);
+    // stroke(255);
+    stroke(r, g, b, alpha);
     strokeWeight(1);
-    // point(this.pos.x, this.pos.y)
+    // circle(this.pos.x, this.pos.y, 10);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrevPos();
   }
