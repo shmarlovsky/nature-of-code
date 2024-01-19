@@ -3,7 +3,7 @@
 let N = 300;
 let dist = 2
 let radius = 50
-let relOffsetCoeff = 3;
+let relOffsetCoeff = 2 ;
 let angle = 0;
 
 function setup() {
@@ -28,11 +28,11 @@ function draw() {
   scale(0.9)
   for (let i = 0; i < N; i++) {
     push()
-    r = map(sin(frameCount / 2 + i + 100), -1, 1, 50, 150)
-    g = map(sin(frameCount / 2 + i + 50), -1, 1, 100, 200)
-    b = map(sin(frameCount / 2 + i + 200), -1, 1, 100, 200)
+    r = map(sin(frameCount/2 + i + 100), -1, 1, 50, 150)
+    g = map(sin(frameCount/2 + i + 50), -1, 1, 100, 200)
+    b = map(sin(frameCount/2 + i + 200), -1, 1, 100, 200)
     stroke(r, g, b)
-    rotate(frameCount / 4 + i * relOffsetCoeff)
+    rotate(frameCount/4 + i*relOffsetCoeff)
     rect(0, 0, w - j, h - j, radius);
     pop()
     if ((w - j) >= 0) {
@@ -40,6 +40,11 @@ function draw() {
     }
   }
 
-  par.html(frameCount)
-
 }
+
+function keyPressed() {
+  if (key === 's') {
+    saveGif('1.gif', 5);
+  }
+}
+
